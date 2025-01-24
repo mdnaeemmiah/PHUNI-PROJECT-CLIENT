@@ -1,15 +1,22 @@
-import AcademicDepartment from "@/pages/Admin/academicManagement.tsx/AcademicDepartment";
-import AcademicFaculty from "@/pages/Admin/academicManagement.tsx/AcademicFaculty";
-import AcademicSemester from "@/pages/Admin/academicManagement.tsx/Academicsemester";
-import CreateAcademicDepartment from "@/pages/Admin/academicManagement.tsx/CreateAcademicDepartment";
-import CreateAcademicFaculty from "@/pages/Admin/academicManagement.tsx/CreateAcademicfaculty";
-import CreateAcademicSemester from "@/pages/Admin/academicManagement.tsx/CreateAcademicSemester";
-import AdminDashboard from "@/pages/Admin/AdminDashboard";
-import CreateAdmin from "@/pages/Admin/userManagement/CreateAdmin";
-import CreateFaculty from "@/pages/Admin/userManagement/CreateFaculty";
-import CreateStudent from "@/pages/Admin/userManagement/CreateStudent";
-import StudentData from "@/pages/Admin/userManagement/StudentData";
-import StudentDetails from "@/pages/Admin/userManagement/StudentDetails";
+
+import AdminDashboard from '@/pages/Admin/AdminDashboard';
+import OfferedCourse from '../pages/faculty/OfferedCourse';
+import CreateAcademicSemester from '@/pages/Admin/academicManagement.tsx/CreateAcademicSemester';
+import AcademicSemester from '@/pages/Admin/academicManagement.tsx/Academicsemester';
+import CreateAcademicFaculty from '@/pages/Admin/academicManagement.tsx/CreateAcademicfaculty';
+import AcademicFaculty from '@/pages/Admin/academicManagement.tsx/AcademicFaculty';
+import CreateAcademicDepartment from '@/pages/Admin/academicManagement.tsx/CreateAcademicDepartment';
+import AcademicDepartment from '@/pages/Admin/academicManagement.tsx/AcademicDepartment';
+import CreateStudent from '@/pages/Admin/userManagement/CreateStudent';
+import StudentData from '@/pages/Admin/userManagement/StudentData';
+import StudentDetails from '@/pages/Admin/userManagement/StudentDetails';
+import CreateAdmin from '@/pages/Admin/userManagement/CreateAdmin';
+import CreateFaculty from '@/pages/Admin/userManagement/CreateFaculty';
+import SemesterRegistration from '@/pages/Admin/courseManagement/SemesterRegistration';
+import RegisteredSemesters from '@/pages/Admin/courseManagement/RegisteredSemester';
+import CreateCourse from '@/pages/Admin/courseManagement/CreateCourse';
+import Courses from '@/pages/Admin/courseManagement/Courses';
+import OfferCourse from '@/pages/Admin/courseManagement/OfferCourse';
 
 export const adminPaths = [
   {
@@ -43,7 +50,7 @@ export const adminPaths = [
       {
         name: 'Create A. Department',
         path: 'create-academic-department',
-        element: <CreateAcademicDepartment />,
+        element: <CreateAcademicDepartment/>,
       },
       {
         name: 'Academic Department',
@@ -58,12 +65,12 @@ export const adminPaths = [
       {
         name: 'Create Student',
         path: 'create-student',
-        element: <CreateStudent/>,
+        element: <CreateStudent />,
       },
       {
         name: 'Students',
         path: 'students-data',
-        element: <StudentData/>,
+        element: <StudentData />,
       },
       {
         path: 'student-data/:studentId',
@@ -72,7 +79,7 @@ export const adminPaths = [
       {
         name: 'Create Admin',
         path: 'create-admin',
-        element: <CreateAdmin/>,
+        element: <CreateAdmin />,
       },
       {
         name: 'Create Faculty',
@@ -87,72 +94,40 @@ export const adminPaths = [
       },
     ],
   },
+  {
+    name: 'Course Management',
+    children: [
+      {
+        name: 'Semester Registration',
+        path: 'semester-registration',
+        element: <SemesterRegistration />,
+      },
+      {
+        name: 'Registered Semesters',
+        path: 'registered-semesters',
+        element: <RegisteredSemesters />,
+      },
+      {
+        name: 'Create Course',
+        path: 'create-course',
+        element: <CreateCourse/>,
+      },
+      {
+        name: 'Courses',
+        path: 'courses',
+        element: <Courses />,
+      },
+      {
+        name: 'Offer Course',
+        path: 'offer-course',
+        element: <OfferCourse />,
+      },
+      {
+        name: 'Offered Courses',
+        path: 'offered-courses',
+        element: <OfferedCourse />,
+      },
+    ],
+  },
 ];
 
-// export const adminSidebarItems = adminPaths.reduce(
-//   (acc: TSidebarItem[], item) => {
-//     if (item.path && item.name) {
-//       acc.push({
-//         key: item.name,
-//         label: <NavLink to={`/admin/${item.path}`}>{item.name}</NavLink>,
-//       });
-//     }
-
-//     if (item.children) {
-//       acc.push({
-//         key: item.name,
-//         label: item.name,
-//         children: item.children.map((child) => ({
-//           key: child.name,
-//           label: <NavLink to={`/admin/${child.path}`}>{child.name}</NavLink>,
-//         })),
-//       });
-//     }
-
-//     return acc;
-//   },
-//   []
-// );
-
-//* Programatical way
-
-// export const adminRoutes = adminPaths.reduce((acc: TRoute[], item) => {
-//   if (item.path && item.element) {
-//     acc.push({
-//       path: item.path,
-//       element: item.element,
-//     });
-//   }
-
-//   if (item.children) {
-//     item.children.forEach((child) => {
-//       acc.push({
-//         path: child.path,
-//         element: child.element,
-//       });
-//     });
-//   }
-
-//   return acc;
-// }, []);
-
-//! Hard coded way
-
-// export const adminPaths = [
-//   {
-//     path: 'dashboard',
-//     element: <AdminDashboard />,
-//   },
-//   {
-//     path: 'create-student',
-//     element: <CreateStudent />,
-//   },
-//   {
-//     path: 'create-admin',
-//     element: <CreateAdmin />,
-//   },
-//   {
-//     path: 'create-faculty',
-//     element: <CreateFaculty />,
-//   },
-// ];

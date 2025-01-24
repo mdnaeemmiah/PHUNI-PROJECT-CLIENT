@@ -5,10 +5,11 @@ import PHSelect from '../../../components/form/PHSelect';
 import { semesterOptions } from '../../../constants/semester';
 import { monthOptions } from '../../../constants/global';
 import { zodResolver } from '@hookform/resolvers/zod';
+
+import { academicSemesterSchema } from '../../../schemas/academicManagement.schema';
 import { useAddAcademicSemesterMutation } from '../../../redux/features/admin/academicManagement.api';
 import { toast } from 'sonner';
-import { TResponse } from '@/types';
-import { academicSemesterSchema } from '@/schemas/academicManagement.schema';
+import { TResponse } from '../../../types/global';
 
 const currentYear = new Date().getFullYear();
 const yearOptions = [0, 1, 2, 3, 4].map((number) => ({
@@ -50,12 +51,18 @@ const CreateAcademicSemester = () => {
       <Col span={6}>
         <PHForm
           onSubmit={onSubmit}
-          resolver={zodResolver(academicSemesterSchema)}>
+          resolver={zodResolver(academicSemesterSchema)}
+        >
           <PHSelect label="Name" name="name" options={semesterOptions} />
           <PHSelect label="Year" name="year" options={yearOptions} />
-          <PHSelect label="Start Month"name="startMonth"options={monthOptions} />
+          <PHSelect
+            label="Start Month"
+            name="startMonth"
+            options={monthOptions}
+          />
           <PHSelect label="End Month" name="endMonth" options={monthOptions} />
-           <Button htmlType="submit">Submit</Button>
+
+          <Button htmlType="submit">Submit</Button>
         </PHForm>
       </Col>
     </Flex>

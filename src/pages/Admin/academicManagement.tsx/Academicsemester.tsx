@@ -1,12 +1,13 @@
 import { Button, Table, TableColumnsType, TableProps } from 'antd';
+import { useGetAllSemestersQuery } from '../../../redux/features/admin/academicManagement.api';
+import { TAcademicSemester } from '../../../types/academicManagement.type';
 import { useState } from 'react';
 import { TQueryParam } from '../../../types';
-import { TAcademicSemester } from '@/types/academicManagement.type';
-import { useGetAllSemestersQuery } from '@/redux/features/admin/academicManagement.api';
 
 export type TTableData = Pick<
   TAcademicSemester,
-  'name' | 'year' | 'startMonth' | 'endMonth'>;
+  'name' | 'year' | 'startMonth' | 'endMonth'
+>;
 
 const AcademicSemester = () => {
   const [params, setParams] = useState<TQueryParam[] | undefined>(undefined);

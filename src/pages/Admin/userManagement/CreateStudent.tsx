@@ -9,7 +9,7 @@ import {
   useGetAcademicDepartmentsQuery,
   useGetAllSemestersQuery,
 } from '../../../redux/features/admin/academicManagement.api';
-import { useAddStudentMutation } from '@/redux/features/admin/userManagement.api';
+import { useAddStudentMutation } from '../../../redux/features/admin/userManagement.api';
 
 const studentDummyData = {
   password: 'student123',
@@ -83,8 +83,8 @@ const studentDefaultValues = {
     address: '789 Pine St, Villageton',
   },
 
-  // admissionSemester: '65bb60ebf71fdd1add63b1c0',
-  // academicDepartment: '65b4acae3dc8d4f3ad83e416',
+  admissionSemester: '65bb60ebf71fdd1add63b1c0',
+  academicDepartment: '65b4acae3dc8d4f3ad83e416',
 };
 
 const CreateStudent = () => {
@@ -96,7 +96,7 @@ const CreateStudent = () => {
     useGetAllSemestersQuery(undefined);
 
   const { data: dData, isLoading: dIsLoading } =
-    useGetAcademicDepartmentsQuery(undefined ,{skip:sIsLoading});
+    useGetAcademicDepartmentsQuery(undefined);
 
   const semesterOptions = sData?.data?.map((item) => ({
     value: item._id,
