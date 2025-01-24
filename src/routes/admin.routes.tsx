@@ -3,10 +3,13 @@ import AcademicFaculty from "@/pages/Admin/academicManagement.tsx/AcademicFacult
 import AcademicSemester from "@/pages/Admin/academicManagement.tsx/Academicsemester";
 import CreateAcademicDepartment from "@/pages/Admin/academicManagement.tsx/CreateAcademicDepartment";
 import CreateAcademicFaculty from "@/pages/Admin/academicManagement.tsx/CreateAcademicfaculty";
+import CreateAcademicSemester from "@/pages/Admin/academicManagement.tsx/CreateAcademicSemester";
 import AdminDashboard from "@/pages/Admin/AdminDashboard";
-import CreateAdmin from "@/pages/Admin/CreateAdmin";
-import CreateFaculty from "@/pages/Admin/CreateFaculty";
-import CreateStudent from "@/pages/Admin/CreateStudent";
+import CreateAdmin from "@/pages/Admin/userManagement/CreateAdmin";
+import CreateFaculty from "@/pages/Admin/userManagement/CreateFaculty";
+import CreateStudent from "@/pages/Admin/userManagement/CreateStudent";
+import StudentData from "@/pages/Admin/userManagement/StudentData";
+import StudentDetails from "@/pages/Admin/userManagement/StudentDetails";
 
 export const adminPaths = [
   {
@@ -17,6 +20,11 @@ export const adminPaths = [
   {
     name: 'Academic Management',
     children: [
+      {
+        name: 'Create A. Semester',
+        path: 'create-academic-semester',
+        element: <CreateAcademicSemester />,
+      },
       {
         name: 'Academic Semester',
         path: 'academic-semester',
@@ -48,20 +56,30 @@ export const adminPaths = [
     name: 'User Management',
     children: [
       {
+        name: 'Create Student',
+        path: 'create-student',
+        element: <CreateStudent/>,
+      },
+      {
+        name: 'Students',
+        path: 'students-data',
+        element: <StudentData/>,
+      },
+      {
+        path: 'student-data/:studentId',
+        element: <StudentDetails />,
+      },
+      {
         name: 'Create Admin',
         path: 'create-admin',
-        element: <CreateAdmin />,
+        element: <CreateAdmin/>,
       },
       {
         name: 'Create Faculty',
         path: 'create-faculty',
         element: <CreateFaculty />,
       },
-      {
-        name: 'Create Student',
-        path: 'create-student',
-        element: <CreateStudent/>,
-      },
+
       {
         name: 'Create Member',
         path: 'create-member',
